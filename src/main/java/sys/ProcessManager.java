@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
+import ch.alpine.tensor.ext.PathName;
+
 public final class ProcessManager {
   private final List<ProcessBuilder> list;
 
@@ -47,9 +49,9 @@ public final class ProcessManager {
     log = false;
   }
 
-  public Process executeSafe(Path file) {
-    Filename filename = new Filename(file);
-    Path directory = file.getParent();
+  public Process executeSafe(Path path) {
+    PathName filename = PathName.of(path);
+    Path directory = path.getParent();
     Path batchFile = filename.withExtension("bat");
     if (bat)
       toBatchFile(batchFile);

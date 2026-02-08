@@ -1,6 +1,8 @@
 // code by jph
 package ch.alpine.midkit;
 
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
 
@@ -37,9 +39,12 @@ enum MidiPlaySequenceDemo {
     sequencer.open();
     if (!sequencer.isOpen())
       throw new RuntimeException("sequencer not open");
-    Path file = Unprotect.path("/mid/bwv1086.mid");
-    file = HomeDirectory.Downloads.path("aw2.mid");
-    Sequence sequence = MidiSystem.getSequence(file.toFile());
+    Path file = Unprotect.resourcePath("/mid/bwv1086.mid");
+    file = HomeDirectory.Downloads.resolve("aw2.mid");
+    Sequence sequence = null;
+    try (InputStream inputStream = Files.newInputStream(file)) {
+      sequence = MidiSystem.getSequence(inputStream);
+    }
     sequencer.setSequence(sequence);
     sequencer.start();
     Thread.sleep(500_000);

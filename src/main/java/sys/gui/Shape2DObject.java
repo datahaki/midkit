@@ -1,3 +1,4 @@
+// code by jph
 package sys.gui;
 
 import java.awt.Shape;

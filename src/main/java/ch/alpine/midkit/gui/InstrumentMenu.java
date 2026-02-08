@@ -1,3 +1,4 @@
+// code by jph
 package ch.alpine.midkit.gui;
 
 import javax.swing.JMenu;

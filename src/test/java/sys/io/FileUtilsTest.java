@@ -1,3 +1,4 @@
+// code by jph
 package sys.io;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -16,7 +17,7 @@ class FileUtilsTest {
 
   @Test
   void testSome() throws Exception {
-    Path src = Unprotect.path("/mid/bwv1086.mid");
+    Path src = Unprotect.resourcePath("/mid/bwv1086.mid");
     Path dst = tempDir.resolve("target.mid");
     Files.copy(src, dst);
     assertTrue(Files.exists(dst));

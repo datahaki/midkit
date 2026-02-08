@@ -4,7 +4,9 @@
 // http://tweakheadz.com/midi-controllers/
 package ch.alpine.midkit;
 
+import java.io.OutputStream;
 import java.nio.ByteBuffer;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.function.IntUnaryOperator;
 
@@ -164,6 +166,8 @@ public enum Midi {
    * @param file
    * @throws Exception */
   public static void write(Sequence sequence, Path file) throws Exception {
-    MidiSystem.write(sequence, SUPPORTED_FILETYPE, file.toFile());
+    try (OutputStream outputStream = Files.newOutputStream(file)) {
+      MidiSystem.write(sequence, SUPPORTED_FILETYPE, outputStream);
+    }
   }
 }

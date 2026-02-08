@@ -1,3 +1,4 @@
+// code by jph
 package sys.mat;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,3 +1,4 @@
+// code by jph
 package ch.alpine.midkit.put.rmi;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -40,7 +41,7 @@ class RemoteMidiPutServerTest {
       ShortMessage shortMessage = new ShortMessage(ShortMessage.NOTE_ON, 0, 64, 80);
       remoteMidiPutServer.remote_sendMessageBytes(shortMessage.getMessage(), -1);
       Thread.sleep(1000);
-      Path file = Unprotect.path("/mid/bwv1086.mid");
+      Path file = Unprotect.resourcePath("/mid/bwv1086.mid");
       byte[] bytes = Files.readAllBytes(file);
       remoteMidiPutServer.remote_startSequenceBytes(bytes);
       assertTrue(remoteMidiPutServer.remote_isRunning());

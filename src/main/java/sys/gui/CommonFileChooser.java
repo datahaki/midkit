@@ -16,7 +16,7 @@ import javax.swing.filechooser.FileFilter;
 
 import ch.alpine.bridge.ref.ann.ReflectionMarker;
 import ch.alpine.bridge.ref.util.ObjectProperties;
-import ch.alpine.tensor.ext.FileExtension;
+import ch.alpine.tensor.ext.PathName;
 
 public abstract class CommonFileChooser {
   @ReflectionMarker
@@ -42,7 +42,7 @@ public abstract class CommonFileChooser {
       @Override
       public boolean accept(File file) {
         return file.isDirectory() //
-            || collection.contains(FileExtension.of(file.toPath()).toLowerCase());
+            || collection.contains(PathName.of(file.toPath()).extension().toLowerCase());
       }
     });
     return jFileChooser;

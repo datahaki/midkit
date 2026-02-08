@@ -1,8 +1,11 @@
+// code by jph
 package ch.alpine.midkit.put.rmi;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
 
@@ -33,8 +36,10 @@ class RemoteMidiPutTest {
       midiPut2.sendMessage(new ShortMessage(ShortMessage.NOTE_OFF, 0, 64, 0), -1);
       Thread.sleep(500);
       // ---
-      Path file = Unprotect.path("/mid/bwv1086.mid");
-      midiPut1.startSequence(MidiSystem.getSequence(file.toFile()));
+      Path file = Unprotect.resourcePath("/mid/bwv1086.mid");
+      try (InputStream inputStream = Files.newInputStream(file)) {
+        midiPut1.startSequence(MidiSystem.getSequence(inputStream));
+      }
       assertTrue(midiPut2.isRunning());
       Thread.sleep(2_000);
       long tickPosition = midiPut2.getTickPosition();

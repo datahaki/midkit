@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import ch.alpine.bridge.io.DeleteDirectory;
-import sys.Filename;
+import ch.alpine.tensor.ext.PathName;
 
 public enum FileUtils {
   ;
@@ -53,11 +53,11 @@ public enum FileUtils {
     });
   }
 
-  public static List<Filename> listFiles(Path directory, String... strings) throws IOException {
+  public static List<PathName> listFiles(Path directory, String... strings) throws IOException {
     Set<String> set = Stream.of(strings).map(String::toLowerCase).collect(Collectors.toSet());
     return Files.list(directory) //
         .filter(Files::isRegularFile) //
-        .map(Filename::new) //
+        .map(PathName::of) //
         .filter(filename -> set.contains(filename.extension().toLowerCase())) //
         .sorted() //
         .toList();

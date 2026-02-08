@@ -4,11 +4,13 @@ package sys.svg;
 import java.awt.Font;
 import java.awt.font.TextAttribute;
 import java.io.File;
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
-import sys.Filename;
+import ch.alpine.tensor.ext.PathName;
 
 /** next to the true-type font file, a svg file is required
  *
@@ -23,9 +25,11 @@ public class SvgFont {
   private final Font font;
 
   public SvgFont(Path file) throws Exception {
-    Filename filename = new Filename(file);
+    PathName filename = PathName.of(file);
     svgFontIndex = new SvgFontIndex(filename.withExtension("svg"));
-    font = Font.createFont(Font.TRUETYPE_FONT, filename.withExtension("otf").toFile());
+    try (InputStream inputStream = Files.newInputStream(filename.withExtension("otf"))) {
+      font = Font.createFont(Font.TRUETYPE_FONT, inputStream);
+    }
   }
 
   public SvgFontIndex svgFontIndex() {

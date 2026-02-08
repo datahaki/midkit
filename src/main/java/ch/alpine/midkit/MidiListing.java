@@ -2,6 +2,7 @@
 // https://metacpan.org/module/MIDI::XML::SmpteOffset
 package ch.alpine.midkit;
 
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -32,8 +33,11 @@ public class MidiListing {
 
   /** @param file midi file
    * @throws Exception if file is corrupt */
-  public MidiListing(Path file) throws Exception {
-    this(MidiSystem.getSequence(file.toFile()));
+  public static MidiListing of(Path file) throws Exception {
+    try (InputStream inputStream = Files.newInputStream(file)) {
+      Sequence sequence = MidiSystem.getSequence(inputStream);
+      return new MidiListing(sequence);
+    }
   }
 
   public MidiListing(Sequence sequence) {

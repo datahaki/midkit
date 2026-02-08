@@ -3,6 +3,8 @@ package ch.alpine.midkit.put;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
 
@@ -25,8 +27,10 @@ class DirectMidiPutTest {
       Thread.sleep(500);
       midiPut.sendMessage(new ShortMessage(ShortMessage.NOTE_OFF, 0, 64, 0), -1);
       Thread.sleep(500);
-      Path file = Unprotect.path("/mid/bwv1086.mid");
-      midiPut.startSequence(MidiSystem.getSequence(file.toFile()));
+      Path file = Unprotect.resourcePath("/mid/bwv1086.mid");
+      try (InputStream inputStream = Files.newInputStream(file)) {
+        midiPut.startSequence(MidiSystem.getSequence(inputStream));
+      }
       assertTrue(midiPut.isRunning());
       Thread.sleep(3_000);
       long tickPosition = midiPut.getTickPosition();
@@ -49,8 +53,10 @@ class DirectMidiPutTest {
         Thread.sleep(500);
         midiPut.sendMessage(new ShortMessage(ShortMessage.NOTE_OFF, 0, 64, 0), -1);
         Thread.sleep(500);
-        Path file = Unprotect.path("/mid/bwv1086.mid");
-        midiPut.startSequence(MidiSystem.getSequence(file.toFile()));
+        Path file = Unprotect.resourcePath("/mid/bwv1086.mid");
+        try (InputStream inputStream = Files.newInputStream(file)) {
+          midiPut.startSequence(MidiSystem.getSequence(inputStream));
+        }
         assertTrue(midiPut.isRunning());
         Thread.sleep(3_000);
         long tickPosition = midiPut.getTickPosition();
