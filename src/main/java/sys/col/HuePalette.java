@@ -69,7 +69,7 @@ public class HuePalette implements ColorDataIndexed {
     }
     if (FiniteTensorQ.of(vector)) {
       Scalar min = vector.Get(ArgMin.of(vector));
-      value = vector.map(min::divide);
+      value = vector.maps(min::divide);
     } else
       value = vector;
   }

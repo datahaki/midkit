@@ -20,7 +20,7 @@ public enum ConsoleReceiver implements Receiver {
   public void send(MidiMessage midiMessage, long timeStamp) {
     Scalar scalar = scalarUnaryOperator.apply(Quantity.of(timeStamp, "us"));
     byte[] message = midiMessage.getMessage();
-    System.out.println(FriendlyFormat.of(message) + " " + scalar.map(Round._6));
+    System.out.println(FriendlyFormat.of(message) + " " + scalar.maps(Round._6));
   }
 
   @Override
