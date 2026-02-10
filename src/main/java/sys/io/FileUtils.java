@@ -28,7 +28,7 @@ public enum FileUtils {
     return true;
   }
 
-  public static void rigorousTransfer(Path source, Path target, int max_depth, int max_count) throws IOException {
+  public static void rigorousTransfer(Path source, Path target, int max_depth, int max_count) throws Exception {
     if (!source.getFileName().equals(target.getFileName()))
       throw new RuntimeException();
     if (!Files.exists(source))
