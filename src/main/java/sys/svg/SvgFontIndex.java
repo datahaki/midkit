@@ -47,12 +47,12 @@ public class SvgFontIndex extends XmlReader {
   }
 
   @Override
-  protected void string(String token, String string) throws Exception {
+  protected void string(String token, String string) {
     // n.a.
   }
 
   @Override
-  protected void pop(String token) throws Exception {
+  protected void pop(String token) {
     // n.a.
   }
 
@@ -81,7 +81,7 @@ public class SvgFontIndex extends XmlReader {
   }
 
   @Override
-  protected void pushpop(String token, String group) throws Exception {
+  protected void pushpop(String token, String group) {
     if (token.equals("glyph")) {
       /** <glyph glyph-name=".notdef" d="M0 0v400h200v-400h-200zM10 10h180v380h-180v-380z" /> */
       /** <glyph glyph-name="uniE527" unicode="&#xe520;&#xe520;&#xe520;&#xe520;&#xe520;&#xe520;" ...> */
@@ -111,7 +111,7 @@ public class SvgFontIndex extends XmlReader {
   }
 
   @Override
-  protected void push(String token, String group) throws Exception {
+  protected void push(String token, String group) {
     if (token.equals("font"))
       id = getValue(group, "id");
   }

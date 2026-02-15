@@ -41,7 +41,7 @@ public enum EmptyMidiPut implements MidiPut {
   }
 
   @Override
-  public void close() throws Exception {
+  public void close() {
     // do nothing
   }
 }

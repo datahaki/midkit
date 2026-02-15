@@ -96,7 +96,7 @@ public class DirectMidiPut implements MidiPut {
   }
 
   @Override // from AutoCloseable
-  public void close() throws Exception {
+  public void close() {
     stopSequencers();
     sequencer.close();
     receiver.close();

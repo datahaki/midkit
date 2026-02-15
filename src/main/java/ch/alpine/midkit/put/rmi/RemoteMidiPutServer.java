@@ -3,7 +3,6 @@ package ch.alpine.midkit.put.rmi;
 
 import java.io.ByteArrayInputStream;
 import java.rmi.Naming;
-import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Objects;
 
@@ -30,7 +29,7 @@ public class RemoteMidiPutServer extends UnicastRemoteObject implements RemoteMi
   }
 
   @Override // from RemoteMidiOutput
-  public void remote_startSequenceBytes(byte[] data) throws RemoteException {
+  public void remote_startSequenceBytes(byte[] data) {
     try {
       Sequence sequence = MidiSystem.getSequence(new ByteArrayInputStream(data));
       midiPut.startSequence(sequence);
@@ -40,27 +39,27 @@ public class RemoteMidiPutServer extends UnicastRemoteObject implements RemoteMi
   }
 
   @Override // from RemoteMidiOutput
-  public boolean remote_isRunning() throws RemoteException {
+  public boolean remote_isRunning() {
     return midiPut.isRunning();
   }
 
   @Override // from RemoteMidiOutput
-  public long remote_getTickPosition() throws RemoteException {
+  public long remote_getTickPosition() {
     return midiPut.getTickPosition();
   }
 
   @Override // from RemoteMidiOutput
-  public void remote_setTempoInBPM(Scalar bpm) throws RemoteException {
+  public void remote_setTempoInBPM(Scalar bpm) {
     midiPut.setTempoInBPM(bpm);
   }
 
   @Override // from RemoteMidiOutput
-  public void remote_stopSequencers() throws RemoteException {
+  public void remote_stopSequencers() {
     midiPut.stopSequencers();
   }
 
   @Override // from RemoteMidiOutput
-  public void remote_sendMessageBytes(byte[] data, long ticks) throws RemoteException {
+  public void remote_sendMessageBytes(byte[] data, long ticks) {
     try {
       midiPut.sendMessage(new MidiMessageAdapter(data), ticks);
     } catch (Exception exception) {

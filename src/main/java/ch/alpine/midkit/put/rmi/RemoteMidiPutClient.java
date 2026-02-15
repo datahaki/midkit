@@ -120,7 +120,7 @@ public class RemoteMidiPutClient implements MidiPut {
   }
 
   @Override
-  public void close() throws Exception {
+  public void close() {
     // TODO MIDI close remoteMidiPut ?
   }
 }
