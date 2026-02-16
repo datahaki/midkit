@@ -3,7 +3,7 @@ package sys.mat;
 
 import java.util.IntSummaryStatistics;
 
-import ch.alpine.tensor.RationalScalar;
+import ch.alpine.tensor.Rational;
 import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.num.Denominator;
 import ch.alpine.tensor.num.Numerator;
@@ -36,7 +36,7 @@ public record Ratio(int num, int den) {
   }
 
   public Scalar toFraction() {
-    return RationalScalar.of(num, den);
+    return Rational.of(num, den);
   }
 
   public double toDouble() {

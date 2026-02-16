@@ -79,7 +79,7 @@ public abstract class StandardMenu {
   }
 
   public void atMouse(JComponent jComponent) {
-    Point mouse = MousePosition.get().orElseThrow();
+    Point mouse = MousePosition.optional().orElseThrow();
     Point point = jComponent.getLocationOnScreen();
     designShow().show(jComponent, mouse.x - point.x, mouse.y - point.y);
   }

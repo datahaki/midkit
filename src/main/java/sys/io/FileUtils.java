@@ -53,12 +53,16 @@ public enum FileUtils {
     });
   }
 
-  public static List<Path> listFiles(Path directory, String... strings) throws IOException {
+  public static List<Path> listFiles(Path directory, String... strings) {
     Set<String> set = Stream.of(strings).map(String::toLowerCase).collect(Collectors.toSet());
-    return Files.list(directory) //
-        .filter(Files::isRegularFile) //
-        .filter(filename -> set.contains(PathName.of(filename).extension().toLowerCase())) //
-        .sorted() //
-        .toList();
+    try {
+      return Files.list(directory) //
+          .filter(Files::isRegularFile) //
+          .filter(filename -> set.contains(PathName.of(filename).extension().toLowerCase())) //
+          .sorted() //
+          .toList();
+    } catch (Exception exception) {
+      throw new RuntimeException(exception);
+    }
   }
 }
