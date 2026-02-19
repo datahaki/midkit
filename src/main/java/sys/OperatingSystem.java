@@ -3,6 +3,7 @@ package sys;
 
 import java.util.Locale;
 
+// @Deprecated
 public enum OperatingSystem {
   LINUX,
   WINDOWS,

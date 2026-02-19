@@ -9,25 +9,6 @@ import java.nio.file.Path;
 
 public enum DesktopHelper {
   ;
-  /** @param file intended to open in file navigator/explorer window while selected */
-  @Deprecated
-  public static void navigateTo(Path file) {
-    try {
-      switch (OperatingSystem.TYPE) {
-      case LINUX:
-        new ProcessBuilder("nautilus", file.toAbsolutePath().toString()).start();
-        break;
-      case WINDOWS:
-        new ProcessBuilder("explorer.exe", "/select,\"" + file + "\"").start();
-        break;
-      default:
-        break;
-      }
-    } catch (Exception exception) {
-      exception.printStackTrace();
-    }
-  }
-
   /** can be used to open folders in explorer (without selecting any specific file in the folder)
    * 
    * @param file */
