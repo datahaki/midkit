@@ -14,17 +14,6 @@ jobs:
       - name: checkout main repo
         uses: actions/checkout@v4
 
-      - name: Linux specific
-        if: runner.os == 'Linux'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            alsa-utils \
-            alsa-tools \
-            libasound2-dev
-          sudo modprobe snd-virmidi
-          amidi -l
-
       - name: set up JDK 25
         uses: actions/setup-java@v4
         with:

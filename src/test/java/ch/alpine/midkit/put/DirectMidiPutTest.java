@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.alpine.midkit.MidiDevices;
 import ch.alpine.tensor.Unprotect;
+import ch.alpine.tensor.ext.ResourceData;
 
 class DirectMidiPutTest {
   @Test
@@ -27,8 +28,9 @@ class DirectMidiPutTest {
       Thread.sleep(500);
       midiPut.sendMessage(new ShortMessage(ShortMessage.NOTE_OFF, 0, 64, 0), -1);
       Thread.sleep(500);
-      Path file = Unprotect.resourcePath("/mid/bwv1086.mid");
-      try (InputStream inputStream = Files.newInputStream(file)) {
+      // Path file = Unprotect.resourcePath("/mid/bwv1086.mid");
+      // try (InputStream inputStream = Files.newInputStream(file)) {
+      try (InputStream inputStream = ResourceData.class.getResourceAsStream("/mid/bwv1086.mid")) {
         midiPut.startSequence(MidiSystem.getSequence(inputStream));
       }
       assertTrue(midiPut.isRunning());
