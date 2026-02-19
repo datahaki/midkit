@@ -74,7 +74,7 @@ class PalettePreview implements ChangeListener {
   }
 
   static void main() {
-    LookAndFeels.LIGHT.updateComponentTreeUI();
+    LookAndFeels.autoDetect();
     PalettePreview palettePreview = new PalettePreview();
     palettePreview.jFrame.setVisible(true);
   }

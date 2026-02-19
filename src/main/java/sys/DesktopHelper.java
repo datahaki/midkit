@@ -10,6 +10,7 @@ import java.nio.file.Path;
 public enum DesktopHelper {
   ;
   /** @param file intended to open in file navigator/explorer window while selected */
+  @Deprecated
   public static void navigateTo(Path file) {
     try {
       switch (OperatingSystem.TYPE) {

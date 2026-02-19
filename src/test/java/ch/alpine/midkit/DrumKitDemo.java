@@ -14,7 +14,6 @@ import ch.alpine.bridge.ref.FieldsEditorParam;
 import ch.alpine.bridge.ref.ann.ReflectionMarker;
 import ch.alpine.bridge.ref.util.DialogFieldsEditor;
 import ch.alpine.bridge.ref.util.FieldsEditor;
-import ch.alpine.bridge.ref.util.ReflectionMarkers;
 import ch.alpine.bridge.swing.LookAndFeels;
 import ch.alpine.midkit.put.MidiPutPredicate;
 
@@ -24,8 +23,7 @@ public class DrumKitDemo {
   public Boolean play = false;
 
   static void main() throws Exception {
-    ReflectionMarkers.INSTANCE.DEBUG_PRINT.set(true);
-    LookAndFeels.LIGHT.updateComponentTreeUI();
+    LookAndFeels.autoDetect();
     FieldsEditorParam.GLOBAL.textFieldFont = new Font(Font.DIALOG_INPUT, Font.PLAIN, 20);
     FieldsEditorParam.GLOBAL.textFieldFont_override = true;
     FieldsEditorParam.GLOBAL.checkBoxParam.override = true;
