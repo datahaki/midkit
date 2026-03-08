@@ -3,9 +3,9 @@ package ch.alpine.midkit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -25,17 +25,17 @@ class XgMidiInstrumentTest {
 
   @Test
   void testIncr() {
-    OrderedQ.require(Tensor.of(Stream.of(XgMidiInstrument.values()).map(s -> s.prg()).map(RealScalar::of)));
+    OrderedQ.require(Tensor.of(Arrays.stream(XgMidiInstrument.values()).map(s -> s.prg()).map(RealScalar::of)));
   }
 
   @Test
   void testIncr2() {
-    OrderedQ.require(Tensor.of(Stream.of(XgMidiInstrument.values()).map(s -> s.prg() * 128 + s.lsb()).map(RealScalar::of)));
+    OrderedQ.require(Tensor.of(Arrays.stream(XgMidiInstrument.values()).map(s -> s.prg() * 128 + s.lsb()).map(RealScalar::of)));
   }
 
   @Test
   void testDiff() {
-    Set<Integer> set = Stream.of(XgMidiInstrument.values()).map(s -> s.prg() * 128 + s.lsb()).collect(Collectors.toSet());
+    Set<Integer> set = Arrays.stream(XgMidiInstrument.values()).map(s -> s.prg() * 128 + s.lsb()).collect(Collectors.toSet());
     assertEquals(XgMidiInstrument.values().length, set.size());
   }
 }

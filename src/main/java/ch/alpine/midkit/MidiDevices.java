@@ -3,12 +3,12 @@ package ch.alpine.midkit;
 
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 import javax.sound.midi.MidiDevice;
 import javax.sound.midi.MidiDevice.Info;
@@ -44,7 +44,7 @@ public enum MidiDevices {
   }
 
   public static Optional<MidiDevice> fromName(Predicate<Info> predicate, String name) {
-    return Stream.of(MidiSystem.getMidiDeviceInfo()) //
+    return Arrays.stream(MidiSystem.getMidiDeviceInfo()) //
         .filter(predicate) //
         .filter(info -> info.getName().equals(name)) //
         .findFirst() //

@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import ch.alpine.bridge.io.DeleteDirectory;
 import ch.alpine.tensor.ext.PathName;
@@ -54,7 +54,7 @@ public enum FileUtils {
   }
 
   public static List<Path> listFiles(Path directory, String... strings) {
-    Set<String> set = Stream.of(strings).map(String::toLowerCase).collect(Collectors.toSet());
+    Set<String> set = Arrays.stream(strings).map(String::toLowerCase).collect(Collectors.toSet());
     try {
       return Files.list(directory) //
           .filter(Files::isRegularFile) //
