@@ -1,7 +1,6 @@
 // code by jph
 package sys.col;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -10,6 +9,8 @@ import java.awt.image.BufferedImage;
 import java.util.function.BiFunction;
 
 import javax.swing.JLabel;
+
+import ch.alpine.bridge.col.HueFromColor;
 
 // TODO MIDI class design is immature
 public final class ImageConvert {
@@ -33,12 +34,12 @@ public final class ImageConvert {
   }
 
   public static BiFunction<Point, Integer, Integer> modifHSV(double s, double v) {
-    return (_, rgba) -> HueFromColor.of(new Color(rgba, true)).modifHSV(s, v).getRGB();
+    return (_, rgba) -> HueFromColor.of(rgba).modifHSV(s, v).getRGB();
   }
 
   public static BiFunction<Point, Integer, Integer> makeWhiteTransparent(double mult) {
     return (_, rgba) -> {
-      HueFromColor hueFromColor = HueFromColor.of(new Color(rgba, true));
+      HueFromColor hueFromColor = HueFromColor.of(rgba);
       int rgb = rgba & 0xffffff;
       int a = (int) Math.min(Math.max(0, (1 + hueFromColor.sat() - mult * hueFromColor.val()) * 255), 255);
       return (a << 24) + rgb;

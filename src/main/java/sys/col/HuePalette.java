@@ -3,6 +3,7 @@ package sys.col;
 
 import java.awt.Color;
 
+import ch.alpine.bridge.col.HueFromColor;
 import ch.alpine.tensor.RealScalar;
 import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.Scalars;
