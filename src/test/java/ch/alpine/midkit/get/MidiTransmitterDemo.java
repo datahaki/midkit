@@ -14,7 +14,7 @@ import ch.alpine.midkit.YamahaOnLinux;
 /** demo shows that a midi device may only be reserved once globally however
  * that any number of transmitters can be created that simultaneously listen
  * to events, and which can be closed individually */
-/* package */ enum MidiTransmitterDemo {
+enum MidiTransmitterDemo {
   ;
   static void main() throws Exception {
     MidiDevice midiDevice = null;
