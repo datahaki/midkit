@@ -8,8 +8,8 @@ import java.awt.Color;
 import org.junit.jupiter.api.Test;
 
 import ch.alpine.bridge.col.ColorLookup;
-import ch.alpine.tensor.img.ColorDataGradients;
-import ch.alpine.tensor.img.ColorDataIndexed;
+import ch.alpine.tensor.col.ColorDataGradients;
+import ch.alpine.tensor.col.ColorDataIndexed;
 
 class ColorLookupTest {
   @Test

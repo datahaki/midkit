@@ -4,7 +4,7 @@ package sys.col;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
-import ch.alpine.tensor.img.ColorDataLists;
+import ch.alpine.tensor.col.ColorDataLists;
 
 class HuePaletteTest {
   @ParameterizedTest
