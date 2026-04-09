@@ -54,7 +54,6 @@ enum MidiForwardPolyDemo {
             System.out.println(duration + " " + cmd);
           }
           try {
-            int c = 0;
             for (int tonic : chord) {
               ShortMessage shortMessage = new ShortMessage(cmd, (message[1] + tonic) & 0xff, message[2] & 0xff);
               receiver.send(shortMessage, -1);
