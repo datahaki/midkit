@@ -39,7 +39,7 @@ enum MidiPlaySequenceDemo {
     sequencer.open();
     if (!sequencer.isOpen())
       throw new RuntimeException("sequencer not open");
-    Path file = Unprotect.resourcePath("/mid/bwv1086.mid");
+    Path file = Unprotect.resourcePath("mid/bwv1086.mid");
     file = HomeDirectory.Downloads.resolve("aw2.mid");
     Sequence sequence = null;
     try (InputStream inputStream = Files.newInputStream(file)) {

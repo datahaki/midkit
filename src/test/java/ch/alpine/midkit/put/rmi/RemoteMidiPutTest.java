@@ -36,7 +36,7 @@ class RemoteMidiPutTest {
       midiPut2.sendMessage(new ShortMessage(ShortMessage.NOTE_OFF, 0, 64, 0), -1);
       Thread.sleep(500);
       // ---
-      Path file = Unprotect.resourcePath("/mid/bwv1086.mid");
+      Path file = Unprotect.resourcePath("mid/bwv1086.mid");
       try (InputStream inputStream = Files.newInputStream(file)) {
         midiPut1.startSequence(MidiSystem.getSequence(inputStream));
       }

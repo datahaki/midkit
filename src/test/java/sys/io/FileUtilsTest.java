@@ -17,7 +17,7 @@ class FileUtilsTest {
 
   @Test
   void testSome() throws Exception {
-    Path src = Unprotect.resourcePath("/mid/bwv1086.mid");
+    Path src = Unprotect.resourcePath("mid/bwv1086.mid");
     Path dst = tempDir.resolve("target.mid");
     Files.copy(src, dst);
     assertTrue(Files.exists(dst));

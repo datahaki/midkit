@@ -28,9 +28,9 @@ class DirectMidiPutTest {
       Thread.sleep(500);
       midiPut.sendMessage(new ShortMessage(ShortMessage.NOTE_OFF, 0, 64, 0), -1);
       Thread.sleep(500);
-      // Path file = Unprotect.resourcePath("/mid/bwv1086.mid");
+      // Path file = Unprotect.resourcePath("mid/bwv1086.mid");
       // try (InputStream inputStream = Files.newInputStream(file)) {
-      try (InputStream inputStream = ResourceData.class.getResourceAsStream("/mid/bwv1086.mid")) {
+      try (InputStream inputStream = ResourceData.class.getResourceAsStream("mid/bwv1086.mid")) {
         midiPut.startSequence(MidiSystem.getSequence(inputStream));
       }
       assertTrue(midiPut.isRunning());
@@ -47,7 +47,7 @@ class DirectMidiPutTest {
 
   @Test
   void testEx() throws Exception {
-    Optional<MidiDevice> optional = MidiDevices.fromName(MidiPutPredicate.INSTANCE, "eX [hw:3,0,0]");
+    Optional<MidiDevice> optional = MidiDevices.fromName(MidiPutPredicate.INSTANCE, "eX [hw:0,0,0]");
     if (optional.isPresent()) {
       MidiDevice midiDevice = optional.orElseThrow();
       try (MidiPut midiPut = DirectMidiPut.of(midiDevice)) {
