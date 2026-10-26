@@ -47,7 +47,7 @@ public final class ImageConvert {
   }
 
   public static BiFunction<Point, Integer, Integer> setTransparency(double alpha) {
-    final int a = (int) Math.min(Math.max(0, alpha * 255), 255);
+    final int a = (int) Math.min(Math.max(0, alpha * 256), 255);
     return (_, rgba) -> {
       int rgb = rgba & 0xffffff;
       return (a << 24) + rgb;
