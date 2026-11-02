@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 import ch.alpine.tensor.red.Tally;
 
-// TODO MIDI this seems to be something like InverseCDF and BiningMethod!?
+// TODO this seems to be something like InverseCDF and BiningMethod!?
 public class PartitionMap {
   /** @param collection of integers to partition
    * @param size number of buckets

@@ -27,7 +27,7 @@ public enum OperatingSystem {
     return UNKNOWN;
   }
 
-  // TODO MIDI access via function
+  // TODO access via function
   public static final OperatingSystem TYPE = establish();
 
   public static boolean isWindows() {

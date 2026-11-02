@@ -9,7 +9,7 @@ import java.util.NavigableSet;
 import java.util.TreeSet;
 import java.util.stream.Stream;
 
-// TODO MIDI use clip
+// TODO use clip
 public class IntRanges<T extends IntRange> implements Iterable<T> {
   private final NavigableSet<T> navigableSet = new TreeSet<>();
 

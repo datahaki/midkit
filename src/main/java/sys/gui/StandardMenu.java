@@ -54,7 +54,7 @@ public abstract class StandardMenu {
 
   private final JPopupMenu jPopupMenu = new JPopupMenu();
 
-  // TODO MIDI misnomer & why return?
+  // TODO misnomer & why return?
   protected final JPopupMenu designShow() {
     design(jPopupMenu);
     return jPopupMenu;

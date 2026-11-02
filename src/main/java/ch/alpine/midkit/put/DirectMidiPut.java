@@ -52,7 +52,7 @@ public class DirectMidiPut implements MidiPut {
 
   @Override // from MidiOutput
   public void startSequence(Sequence sequence) {
-    // TODO MIDI extract functionality to separate class
+    // TODO extract functionality to separate class
     long toc = System.nanoTime();
     list.removeIf(tic -> OVER_NS < toc - tic);
     if (list.size() < SEQUENCE_LIMIT) {

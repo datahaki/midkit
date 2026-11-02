@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 
 import ch.alpine.bridge.col.HueFromColor;
 
-// TODO MIDI class design is immature
+// TODO class design is immature
 public final class ImageConvert {
   public static BufferedImage toType(Image image, int type) {
     JLabel jLabel = new JLabel();

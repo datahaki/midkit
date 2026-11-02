@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
 public enum GlyphLayout2 {
   ;
   public static Rectangle2D getBounds(Font font, String string) {
-    // TODO MIDI implementation is horrific
+    // TODO implementation is horrific
     BufferedImage bufferedImage = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
     Graphics2D graphics = bufferedImage.createGraphics();
     FontRenderContext fontRenderContext = graphics.getFontRenderContext();

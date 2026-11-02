@@ -121,6 +121,6 @@ public class RemoteMidiPutClient implements MidiPut {
 
   @Override
   public void close() {
-    // TODO MIDI close remoteMidiPut ?
+    // TODO close remoteMidiPut ?
   }
 }

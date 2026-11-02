@@ -12,8 +12,8 @@ import java.util.stream.IntStream;
 
 import ch.alpine.tensor.ext.Integers;
 
-// TODO MIDI class make final
-// TODO MIDI rename to IntClip ?
+// TODO class make final
+// TODO rename to IntClip ?
 public class IntRange implements Comparable<IntRange>, Iterable<Integer>, Serializable {
   public static IntRange positive(int max) {
     return new IntRange(0, max);

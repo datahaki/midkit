@@ -141,7 +141,7 @@ public class Manager {
 
   public List<String> getListString(String string, String fallback, String myDelim) {
     List<String> list = new ArrayList<>();
-    // TODO NOTATION very primitive parsing
+    // TODO very primitive parsing
     StringTokenizer stringTokenizer = new StringTokenizer(getString(string, fallback).replace("[", "").replace("]", ""), myDelim);
     while (stringTokenizer.hasMoreTokens())
       list.add(stringTokenizer.nextToken().trim());
@@ -152,7 +152,7 @@ public class Manager {
     List<Integer> list = new ArrayList<>();
     boolean myBoolean = containsKey(string);
     if (myBoolean) {
-      // TODO NOTATION very primitive parsing
+      // TODO very primitive parsing
       StringTokenizer stringTokenizer = new StringTokenizer(getString(string, "").replace('[', ' ').replace(']', ' ').replace(',', ' '));
       while (stringTokenizer.hasMoreTokens()) {
         string = stringTokenizer.nextToken();

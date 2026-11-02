@@ -3,7 +3,7 @@ package sys.dat;
 
 public enum HtmlConversion {
   ;
-  // TODO TPF external library!
+  // TODO external library!
   public static String removeHtml(String string) {
     string = string.replace("&Auml;", "Ae");
     string = string.replace("&Ouml;", "Oe");

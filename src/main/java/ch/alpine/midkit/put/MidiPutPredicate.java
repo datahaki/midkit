@@ -16,7 +16,7 @@ public enum MidiPutPredicate implements Predicate<Info> {
   @Override
   public boolean test(Info info) {
     try {
-      // TODO MIDI eliminate warning
+      // TODO eliminate warning
       return hasReceiver(MidiSystem.getMidiDevice(info));
     } catch (MidiUnavailableException midiUnavailableException) {
       midiUnavailableException.printStackTrace();

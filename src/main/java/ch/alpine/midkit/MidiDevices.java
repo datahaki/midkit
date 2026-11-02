@@ -25,7 +25,7 @@ public enum MidiDevices {
   ;
   public static final int REGISTRY_PORT = Registry.REGISTRY_PORT;
 
-  // TODO MIDI API too complicated
+  // TODO API too complicated
   public static List<Info> getList(Predicate<Info> predicate, int limit) {
     List<Info> list = new ArrayList<>();
     Map<String, Integer> map = new HashMap<>();

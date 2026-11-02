@@ -48,7 +48,7 @@ public enum IntegerMath {
     return value;
   }
 
-  // TODO MIDI JAVA VERSION
+  // TODO JAVA VERSION Math.ceilDiv(x, y) ?
   public static int ceilDiv(int x, int y) {
     final int q = x / y;
     // if the signs are the same and modulo not zero, round up
@@ -58,7 +58,7 @@ public enum IntegerMath {
     return q;
   }
 
-  // TODO MIDI JAVA VERSION
+  // TODO JAVA VERSION
   public static int divideExact(int x, int y) {
     int q = x / y;
     if ((x & y & q) >= 0) {

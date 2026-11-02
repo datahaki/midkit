@@ -10,7 +10,7 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-// TODO MIDI class design is immature
+// TODO class design is immature
 public class BivariateMap<P1, P2, V> implements Serializable {
   record BiEntry<P1, P2, V>(P1 p1, P2 p2, V value) implements Serializable {
   }

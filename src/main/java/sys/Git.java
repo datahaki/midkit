@@ -96,7 +96,7 @@ public class Git {
     Process process = myProcessBuilder.start();
     process.waitFor();
     // myLong = System.nanoTime() - myLong;
-    // TODO TPF generic
+    // TODO generic
     try (InputStream inputStream = process.getInputStream()) {
       byte[] data = new byte[inputStream.available()];
       inputStream.read(data);

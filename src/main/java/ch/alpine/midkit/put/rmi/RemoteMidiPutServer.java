@@ -23,7 +23,7 @@ public class RemoteMidiPutServer extends UnicastRemoteObject implements RemoteMi
 
   public RemoteMidiPutServer(MidiPut midiPut) throws Exception {
     this.midiPut = Objects.requireNonNull(midiPut);
-    // TODO MIDI better name
+    // TODO better name
     bind = HOST + PREFIX + "idontknow";
     Naming.bind(bind, this);
   }
