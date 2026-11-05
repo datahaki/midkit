@@ -22,11 +22,11 @@ import ch.alpine.midkit.put.MidiPutPredicate;
 public class MidiOverlay {
   public final SingleTone singleTone = new SingleTone();
   @FieldFuse
-  public Boolean program_change = false;
+  public transient Boolean program_change = false;
   @FieldFuse
-  public Boolean on = false;
+  public transient Boolean on = false;
   @FieldFuse
-  public Boolean off = false;
+  public transient Boolean off = false;
 
   static void main() throws Exception {
     LookAndFeels.autoDetect();
