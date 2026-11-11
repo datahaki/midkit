@@ -12,8 +12,8 @@ public enum ThreadSleep {
       nanos -= millis * factor;
       try {
         Thread.sleep(millis, (int) nanos);
-      } catch (Exception exception) {
-        exception.printStackTrace();
+      } catch (InterruptedException ie) {
+        Thread.currentThread().interrupt();
       }
     }
   }
