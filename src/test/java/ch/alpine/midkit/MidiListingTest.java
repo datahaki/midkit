@@ -14,7 +14,7 @@ class MidiListingTest {
 
   @Test
   void testListing() throws Exception {
-    Path file = Unprotect.resourcePath("/mid/kv467_v1.mid");
+    Path file = Unprotect.resourcePath("mid/kv467_v1.mid");
     MidiListing midiListing = MidiListing.of(file);
     midiListing.exportTo(folder.resolve("list.txt"));
     midiListing.exportToHtml(folder.resolve("list.htm"));
