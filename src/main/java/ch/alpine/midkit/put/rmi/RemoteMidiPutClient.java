@@ -21,6 +21,8 @@ import ch.alpine.midkit.put.MidiPut;
 import ch.alpine.tensor.Scalar;
 
 public class RemoteMidiPutClient implements MidiPut {
+  private static final int INITIAL_BUFFER_SIZE = 8192; // 8kB pre-allocated buffer
+
   /** @return null if no true midi output is available */
   public static Optional<MidiPut> createAny() {
     return findAny().map(RemoteMidiPutClient::new);
@@ -65,7 +67,7 @@ public class RemoteMidiPutClient implements MidiPut {
 
   @Override // from MidiOutput
   public void startSequence(Sequence sequence) {
-    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(INITIAL_BUFFER_SIZE);
     try {
       MidiSystem.write(sequence, Midi.SUPPORTED_FILETYPE, byteArrayOutputStream);
       remoteMidiPut.remote_startSequenceBytes(byteArrayOutputStream.toByteArray());
